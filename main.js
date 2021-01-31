@@ -33,14 +33,23 @@ const students = [
     name: 'Grahm Pitchard',
     house: 'Slytherin'
   },
+  {
+    id: 6,
+    name: 'Andromeda Black',
+    house: 'Slytherin'
+  },
+  {
+    id: 7,
+    name: 'Cho Chang',
+    house: 'Ravenclaw'
+  },
 ]
-
+const expelledStudents = [];
 
 const printToDom = (divId, textToPrint) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = textToPrint;
 }
-
 
 const studentBuilder = (taco) => {
   let showOnDom = '';
@@ -56,6 +65,20 @@ const studentBuilder = (taco) => {
   printToDom('#studentCard', showOnDom);
 }
 
+const expelledStudentBuilder = (taco) => {
+  let secretDom = '';
+  taco.forEach((item, i) => {
+    secretDom += `<div class="card m-1 ${item.house}" style="width: 18rem;" id=${i}>
+                    <div class="card-body text-center">
+                      <h5 class="card-title">${item.house}</h5>
+                      <p class="card-text">${item.name}</p>
+                    </div>
+                  </div>`
+  })
+  printToDom('#expelledStudent', secretDom);
+}
+
+// Getting student info
 const getStudentInfo = (e) => {
   e.preventDefault();
   const name = document.querySelector('#studentName').value;
@@ -69,26 +92,53 @@ const getStudentInfo = (e) => {
   students.push(obj);
   studentBuilder(students);
   document.querySelector('form').reset();
-  // reset method restores a form element's default value.
 }
 
+// Sorting students with name (alphabetical order)
+const studentSortByName = () => {
+  students.sort((a, b) => {
+    let nameA = a.name.toUpperCase(); 
+    let nameB = b.name.toUpperCase(); 
+    if (nameA < nameB) {
+      return -1;
+    } else if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
+  });
+  studentBuilder(students);
+}
 
-// Expelling student and push it into a different array.
+const studentSortByHouse = () => {
+  students.sort((a, b) => {
+    let houseA = a.house.toUpperCase();
+    let houseB = b.house.toUpperCase();
+    if (houseA < houseB) {
+      return -1;
+    } else if (houseA > houseB) {
+      return 1;
+    } 
+    return 0;
+  })
+  studentBuilder(students);
+}
+
+// Expelling student in a different array
 const expelStudent = (e) => {
   const targetType = e.target.type;
   const targetId = e.target.id;
-  const expelledStudent = [];
+ 
   if (targetType === 'button') {
-    expelledStudent.push(students.splice(targetId, 1));
+    expelledStudents.push(students.splice(targetId, 1));
   }
-  // console.log(expelledStudent); confirmed it is giving me back the array.
   studentBuilder(students);
+  console.log(expelledStudents);
+  expelledStudentBuilder(expelledStudents);
 }
 
 
 const handleButtonClick = (e) => {
   const buttonId = e.target.id;
-  //If I console log buttonId, it gives me the object in the array
   
   if (buttonId === 'showForm') {
     document.querySelector('#hideForm').style.display = 'block';
@@ -98,9 +148,9 @@ const handleButtonClick = (e) => {
 const buttonEvents = () => {
   document.querySelector('#showForm').addEventListener('click', handleButtonClick);
   document.querySelector('form').addEventListener('submit', getStudentInfo);
-  document.querySelector('#studentCard').addEventListener('click', expelStudent)
-  document.querySelector('#alphabet').addEventListener('click', function);
-  document.querySelector('#house').addEventListener('click', function);
+  document.querySelector('#alphabet').addEventListener('click', studentSortByName);
+  document.querySelector('#house').addEventListener('click', studentSortByHouse);
+  document.querySelector('#studentCard').addEventListener('click', expelStudent);
 }
 
 const init = () => {
