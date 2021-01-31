@@ -1,6 +1,22 @@
 body {
-  background-color: lightblue;
+  background-color: #fcdfff;
 }
 #hideForm {
   display: none;
+}
+
+.Griffindor {
+  background-color: #edda74;
+}
+
+.Slytherin {
+  background-color: #438D80;
+}
+
+.Hufflepuff {
+  background-color:#faebd7;
+}
+
+.Ravenclaw {
+  background-color: #8cd3ff;
 }

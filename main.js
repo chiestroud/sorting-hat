@@ -41,10 +41,11 @@ const printToDom = (divId, textToPrint) => {
   selectedDiv.innerHTML = textToPrint;
 }
 
+
 const studentBuilder = (taco) => {
   let showOnDom = '';
   taco.forEach((item, i) => {
-    showOnDom += `<div class="card ${item.house}" style="width: 18rem;" id=${i}>
+    showOnDom += `<div class="card m-1 ${item.house}" style="width: 18rem;" id=${i}>
                     <div class="card-body text-center">
                       <h5 class="card-title">${item.name}</h5>
                       <p class="card-text">${item.house}</p>
@@ -98,6 +99,8 @@ const buttonEvents = () => {
   document.querySelector('#showForm').addEventListener('click', handleButtonClick);
   document.querySelector('form').addEventListener('submit', getStudentInfo);
   document.querySelector('#studentCard').addEventListener('click', expelStudent)
+  document.querySelector('#alphabet').addEventListener('click', function);
+  document.querySelector('#house').addEventListener('click', function);
 }
 
 const init = () => {
