@@ -33,7 +33,6 @@ const students = [
     name: 'Grahm Pitchard',
     house: 'Slytherin'
   },
-
 ]
 
 
