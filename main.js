@@ -54,7 +54,7 @@ const printToDom = (divId, textToPrint) => {
 const studentBuilder = (taco) => {
   let showOnDom = '';
   taco.forEach((item, i) => {
-    showOnDom += `<div class="card m-1 ${item.house}" style="width: 18rem;" id=${i}>
+    showOnDom += `<div class="card m-1 ${item.house.toLowerCase()}" style="width: 18rem;" id=${i}>
                     <div class="card-body text-center">
                       <h5 class="card-title">${item.name}</h5>
                       <p class="card-text">${item.house}</p>
@@ -68,10 +68,10 @@ const studentBuilder = (taco) => {
 const expelledStudentBuilder = (taco) => {
   let secretDom = '';
   taco.forEach((item, i) => {
-    secretDom += `<div class="card m-1 ${item.house}" style="width: 18rem;" id=${i}>
+    secretDom += `<div class="card m-1 ${item[0].house.toLowerCase()}" style="width: 18rem;" id=${i}>
                     <img src="https://upload.wikimedia.org/wikipedia/en/7/7d/DeathEaters.jpg" alt="Death Eater">
                     <div class="card-body text-center">
-                      <p class="card-text">Unfortunately, ${item.name} went to the dark side</p>
+                      <p class="card-text">Unfortunately, ${item[0].name} went to the dark side</p>
                     </div>
                   </div>`
   })
