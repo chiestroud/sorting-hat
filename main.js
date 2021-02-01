@@ -1,6 +1,6 @@
 console.log('hello');
 
-const randomHouse = ['griffindor', 'Hufflepuff', 'Ravenclaw', 'Sletherin'];
+const randomHouse = ['Griffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'];
 
 const students = [
   {
@@ -131,9 +131,11 @@ const expelStudent = (e) => {
   if (targetType === 'button') {
     expelledStudents.push(students.splice(targetId, 1));
   }
+  
   expelledStudentBuilder(expelledStudents);
   studentBuilder(students);
   console.log(expelledStudents);
+  return targetId;
 }
 
 
