@@ -20,3 +20,7 @@ body {
 .ravenclaw {
   background-color: #8cd3ff;
 }
+
+span {
+  font-weight: bold;
+}
