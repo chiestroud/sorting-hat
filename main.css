@@ -1,10 +1,9 @@
 body {
-  background-color: #fcdfff;
+  background-color: rgba(11,156,49,0.2);
 }
 #hideForm {
   display: none;
 }
-
 
 .griffindor {
   background-color: #edda74;
@@ -24,4 +23,16 @@ body {
 
 span {
   font-weight: bold;
+}
+
+.first-year {
+  width: 60%;
+  padding-top: 2%;
+  min-height: 200px;
+}
+
+.dark-side {
+  width: 40%;
+  padding-top: 2%;
+  min-height: 200px;
 }
