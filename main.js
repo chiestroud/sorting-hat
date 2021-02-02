@@ -3,36 +3,36 @@ console.log('hello');
 const randomHouse = ['griffindor', 'Hufflepuff', 'Ravenclaw', 'Sletherin'];
 
 const students = [
-  {
-    id: 0,
-    name: 'Winky Abbott',
-    house: 'Hufflepuff'
-  },
-  {
-    id: 1,
-    name: 'Harry Potter',
-    house: 'Griffindor'
-  },
-  {
-    id: 2,
-    name: 'Hermione Granger',
-    house: 'Griffindor'
-  },
-  {
-    id: 3,
-    name: 'Nymphadora Tonks',
-    house: 'Hufflepuff'
-  },
-  {
-    id: 4,
-    name: 'Luna Lovegood',
-    house: 'Ravenclaw'
-  },
-  {
-    id: 5,
-    name: 'Grahm Pitchard',
-    house: 'Slytherin'
-  },
+  // {
+  //   id: 0,
+  //   name: 'Winky Abbott',
+  //   house: 'Hufflepuff'
+  // },
+  // {
+  //   id: 1,
+  //   name: 'Harry Potter',
+  //   house: 'Griffindor'
+  // },
+  // {
+  //   id: 2,
+  //   name: 'Hermione Granger',
+  //   house: 'Griffindor'
+  // },
+  // {
+  //   id: 3,
+  //   name: 'Nymphadora Tonks',
+  //   house: 'Hufflepuff'
+  // },
+  // {
+  //   id: 4,
+  //   name: 'Luna Lovegood',
+  //   house: 'Ravenclaw'
+  // },
+  // {
+  //   id: 5,
+  //   name: 'Grahm Pitchard',
+  //   house: 'Slytherin'
+  // },
 ]
 
 
@@ -59,7 +59,7 @@ const getStudentInfo = (e) => {
   e.preventDefault();
   const name = document.querySelector('#studentName').value;
   const house = randomHouse[Math.floor(Math.random() * randomHouse.length)];
-  const id = Math.floor(Math.random() * 1000);
+  const id = students.map((student) => student.id).sort((a, b) => a - b);
   const obj = {
     name,
     house,
