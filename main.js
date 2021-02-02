@@ -71,7 +71,7 @@ const expelledStudentBuilder = (taco) => {
     secretDom += `<div class="card m-1" style="width: 13rem;" id=${i}>
                     <img src="https://upload.wikimedia.org/wikipedia/en/7/7d/DeathEaters.jpg" alt="Death Eater">
                     <div class="card-body text-center">
-                      <p class="card-text">Unfortunately, <span class="text-weight-bold">${item[0].name}</span> went to the dark side</p>
+                      <p class="card-text">Unfortunately, <span class="text-weight-bold">${item.name}</span> went over to the dark side</p>
                     </div>
                   </div>`
   })
@@ -131,13 +131,12 @@ const expelStudent = (e) => {
   const targetId = e.target.id;
  
   if (targetType === 'button') {
-    expelledStudents.push(students.splice(targetId, 1));
+    expelledStudents.push(...students.splice(targetId, 1));
   }
   
   expelledStudentBuilder(expelledStudents);
   studentBuilder(students);
   console.log(expelledStudents);
-  return targetId;
 }
 
 
@@ -146,7 +145,7 @@ const handleButtonClick = (e) => {
   
   if (buttonId === 'showForm') {
     document.querySelector('#hideForm').style.display = 'block';
-  }
+  } 
 }
 
 const buttonEvents = () => {
