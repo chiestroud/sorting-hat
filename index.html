@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <link rel="stylesheet" href="main.css">
   <title>Sorting Hat</title>
@@ -11,34 +10,37 @@
 <body>
 
   
-
-  <div class="jumbotron">
-    <h1 class="display-4 container">Hello, world!</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <button type="button" id="showForm" class="btn btn-primary">Primary</button>
-  </div>
-  <form>
-  <div id="hideForm" class="m-3">
-      <h2>Enter First Year's Name</h2>
-      <label for="name" class="form-label">Student:</label>
-      <input type="name" class="form-control" id="studentName" placeholder="Neville Longbottom" required>
-      <button type="submit" id="sort" class="btn btn-secondary">Sort</button>
+  <header class="container">
+    <div class="jumbotron text-center">
+      <h1 class="display-4 container text-center">Hoggy Warty Hogwarts</h1>
+      <p class="lead">Welcome to Sorting Hat page! Let's have fun adding students and expel them if needed. Reducio revelio mobilicorpus incantatem wingardium lacarnum incarcerous charm. Engorgio. </p>
+      <hr class="my-4">
+      <p>Click below to add students!</p>
+      <button type="button" id="showForm" class="btn btn-primary">Let's Start Sorting!</button>
     </div>
-  </form>
-
-  <button type="button" id="alphabet" class="btn btn-success">Sort By Alphabet</button>
-  <button type="button" id="house" class="btn btn-info text-white">Sort By House</button>
-
-  <div class="d-flex">
-    <div class="border border-secondary first-year">First Year's
-      <div id="studentCard" class="d-flex flex-wrap justify-content-around"></div>
+    <form>
+    <div id="hideForm" class="m-3 container text-center">
+        <h2>Enter First Year's Name</h2>
+        <label for="name" class="form-label">Student:</label>
+        <input type="name" class="form-control" id="studentName" placeholder="Neville Longbottom" required>
+        <button type="submit" id="sort" class="btn btn-secondary mt-2">Sort</button>
+      </div>
+    </form>
+  </header>
+  <main class="container">
+    <div class="container text-center">
+      <button type="button" id="alphabet" class="btn btn-success">Sort By Alphabet</button>
+      <button type="button" id="house" class="btn btn-info text-white">Sort By House</button>
     </div>
-    <div class="border border-secondary dark-side">
-      <div id="expelledStudent" class="d-flex flex-wrap justify-content-around">Dark Side</div>
+    <div class="d-flex mt-3">
+      <div class="border border-secondary first-year">First Year's
+        <div id="studentCard" class="d-flex flex-wrap justify-content-around"></div>
+      </div>
+      <div id="dark-side" class="border border-secondary dark-side">Dark Side
+        <div id="expelledStudent" class="d-flex flex-wrap justify-content-around"></div>
+      </div>
     </div>
-  </div>
+  </main>
   
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>

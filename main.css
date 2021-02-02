@@ -5,6 +5,7 @@ body {
   display: none;
 }
 
+
 .griffindor {
   background-color: #edda74;
 }
@@ -19,4 +20,8 @@ body {
 
 .ravenclaw {
   background-color: #8cd3ff;
+}
+
+span {
+  font-weight: bold;
 }
