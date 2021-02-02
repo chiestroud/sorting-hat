@@ -3,46 +3,46 @@ console.log('hello');
 const randomHouse = ['Griffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'];
 
 const students = [
-  {
-    id: 0,
-    name: 'Winky Abbott',
-    house: 'Hufflepuff'
-  },
-  {
-    id: 1,
-    name: 'Harry Potter',
-    house: 'Griffindor'
-  },
-  {
-    id: 2,
-    name: 'Hermione Granger',
-    house: 'Griffindor'
-  },
-  {
-    id: 3,
-    name: 'Nymphadora Tonks',
-    house: 'Hufflepuff'
-  },
-  {
-    id: 4,
-    name: 'Luna Lovegood',
-    house: 'Ravenclaw'
-  },
-  {
-    id: 5,
-    name: 'Grahm Pitchard',
-    house: 'Slytherin'
-  },
-  {
-    id: 6,
-    name: 'Andromeda Black',
-    house: 'Slytherin'
-  },
-  {
-    id: 7,
-    name: 'Cho Chang',
-    house: 'Ravenclaw'
-  },
+  // {
+  //   id: 0,
+  //   name: 'Winky Abbott',
+  //   house: 'Hufflepuff'
+  // },
+  // {
+  //   id: 1,
+  //   name: 'Harry Potter',
+  //   house: 'Griffindor'
+  // },
+  // {
+  //   id: 2,
+  //   name: 'Hermione Granger',
+  //   house: 'Griffindor'
+  // },
+  // {
+  //   id: 3,
+  //   name: 'Nymphadora Tonks',
+  //   house: 'Hufflepuff'
+  // },
+  // {
+  //   id: 4,
+  //   name: 'Luna Lovegood',
+  //   house: 'Ravenclaw'
+  // },
+  // {
+  //   id: 5,
+  //   name: 'Grahm Pitchard',
+  //   house: 'Slytherin'
+  // },
+  // {
+  //   id: 6,
+  //   name: 'Andromeda Black',
+  //   house: 'Slytherin'
+  // },
+  // {
+  //   id: 7,
+  //   name: 'Cho Chang',
+  //   house: 'Ravenclaw'
+  // },
 ]
 const expelledStudents = [];
 
@@ -83,7 +83,8 @@ const getStudentInfo = (e) => {
   e.preventDefault();
   const name = document.querySelector('#studentName').value;
   const house = randomHouse[Math.floor(Math.random() * randomHouse.length)];
-  const id = Math.floor(Math.random() * 1000);
+  const studentIds = students.map((student) => student.id).sort((a, b) => a - b);
+  const id = studentIds.length ? studentIds[studentIds.length - 1] + 1 : 1;
   const obj = {
     name,
     house,
@@ -91,6 +92,7 @@ const getStudentInfo = (e) => {
   }
   students.push(obj);
   studentBuilder(students);
+  console.log(students);
   document.querySelector('form').reset();
 }
 
