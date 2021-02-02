@@ -68,10 +68,10 @@ const studentBuilder = (taco) => {
 const expelledStudentBuilder = (taco) => {
   let secretDom = '';
   taco.forEach((item, i) => {
-    secretDom += `<div class="card m-1" style="width: 12rem;" id=${i}>
+    secretDom += `<div class="card m-1" style="width: 13rem;" id=${i}>
                     <img src="https://upload.wikimedia.org/wikipedia/en/7/7d/DeathEaters.jpg" alt="Death Eater">
                     <div class="card-body text-center">
-                      <p class="card-text">Unfortunately, <span>${item[0].name}</span> went to the dark side</p>
+                      <p class="card-text">Unfortunately, <span class="text-weight-bold">${item[0].name}</span> went to the dark side</p>
                     </div>
                   </div>`
   })
