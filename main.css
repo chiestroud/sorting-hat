@@ -1,6 +1,27 @@
 body {
-  background-color: lightblue;
+  background-color: #fcdfff;
 }
 #hideForm {
   display: none;
+}
+
+
+.griffindor {
+  background-color: #edda74;
+}
+
+.slytherin {
+  background-color: #438D80;
+}
+
+.hufflepuff {
+  background-color:#faebd7;
+}
+
+.ravenclaw {
+  background-color: #8cd3ff;
+}
+
+span {
+  font-weight: bold;
 }
