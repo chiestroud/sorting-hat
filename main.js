@@ -1,40 +1,50 @@
 console.log('hello');
 
-const randomHouse = ['griffindor', 'Hufflepuff', 'Ravenclaw', 'Sletherin'];
+const randomHouse = ['Griffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'];
 
 const students = [
-  // {
-  //   id: 0,
-  //   name: 'Winky Abbott',
-  //   house: 'Hufflepuff'
-  // },
-  // {
-  //   id: 1,
-  //   name: 'Harry Potter',
-  //   house: 'Griffindor'
-  // },
-  // {
-  //   id: 2,
-  //   name: 'Hermione Granger',
-  //   house: 'Griffindor'
-  // },
-  // {
-  //   id: 3,
-  //   name: 'Nymphadora Tonks',
-  //   house: 'Hufflepuff'
-  // },
-  // {
-  //   id: 4,
-  //   name: 'Luna Lovegood',
-  //   house: 'Ravenclaw'
-  // },
-  // {
-  //   id: 5,
-  //   name: 'Grahm Pitchard',
-  //   house: 'Slytherin'
-  // },
+  {
+    id: 0,
+    name: 'Winky Abbott',
+    house: 'Hufflepuff'
+  },
+  {
+    id: 1,
+    name: 'Harry Potter',
+    house: 'Griffindor'
+  },
+  {
+    id: 2,
+    name: 'Hermione Granger',
+    house: 'Griffindor'
+  },
+  {
+    id: 3,
+    name: 'Nymphadora Tonks',
+    house: 'Hufflepuff'
+  },
+  {
+    id: 4,
+    name: 'Luna Lovegood',
+    house: 'Ravenclaw'
+  },
+  {
+    id: 5,
+    name: 'Grahm Pitchard',
+    house: 'Slytherin'
+  },
+  {
+    id: 6,
+    name: 'Andromeda Black',
+    house: 'Slytherin'
+  },
+  {
+    id: 7,
+    name: 'Cho Chang',
+    house: 'Ravenclaw'
+  },
 ]
-
+const expelledStudents = [];
 
 const printToDom = (divId, textToPrint) => {
   const selectedDiv = document.querySelector(divId);
@@ -44,7 +54,7 @@ const printToDom = (divId, textToPrint) => {
 const studentBuilder = (taco) => {
   let showOnDom = '';
   taco.forEach((item, i) => {
-    showOnDom += `<div class="card ${item.house}" style="width: 18rem;" id=${i}>
+    showOnDom += `<div class="card m-1 ${item.house.toLowerCase()}" style="width: 18rem;" id=${i}>
                     <div class="card-body text-center">
                       <h5 class="card-title">${item.name}</h5>
                       <p class="card-text">${item.house}</p>
@@ -55,11 +65,25 @@ const studentBuilder = (taco) => {
   printToDom('#studentCard', showOnDom);
 }
 
+const expelledStudentBuilder = (taco) => {
+  let secretDom = '';
+  taco.forEach((item, i) => {
+    secretDom += `<div class="card m-1" style="width: 13rem;" id=${i}>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/7/7d/DeathEaters.jpg" alt="Death Eater">
+                    <div class="card-body text-center">
+                      <p class="card-text">Unfortunately, <span class="text-weight-bold">${item[0].name}</span> went to the dark side</p>
+                    </div>
+                  </div>`
+  })
+  printToDom('#expelledStudent', secretDom);
+}
+
+// Getting student info
 const getStudentInfo = (e) => {
   e.preventDefault();
   const name = document.querySelector('#studentName').value;
   const house = randomHouse[Math.floor(Math.random() * randomHouse.length)];
-  const id = students.map((student) => student.id).sort((a, b) => a - b);
+  const id = Math.floor(Math.random() * 1000);
   const obj = {
     name,
     house,
@@ -68,26 +92,55 @@ const getStudentInfo = (e) => {
   students.push(obj);
   studentBuilder(students);
   document.querySelector('form').reset();
-  // reset method restores a form element's default value.
 }
 
+// Sorting students with name (alphabetical order)
+const studentSortByName = () => {
+  students.sort((a, b) => {
+    let nameA = a.name.toUpperCase(); 
+    let nameB = b.name.toUpperCase(); 
+    if (nameA < nameB) {
+      return -1;
+    } else if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
+  });
+  studentBuilder(students);
+}
 
-// Expelling student and push it into a different array.
+const studentSortByHouse = () => {
+  students.sort((a, b) => {
+    let houseA = a.house.toUpperCase();
+    let houseB = b.house.toUpperCase();
+    if (houseA < houseB) {
+      return -1;
+    } else if (houseA > houseB) {
+      return 1;
+    } 
+    return 0;
+  })
+  studentBuilder(students);
+}
+
+// Expelling student in a different array
 const expelStudent = (e) => {
   const targetType = e.target.type;
   const targetId = e.target.id;
-  const expelledStudent = [];
+ 
   if (targetType === 'button') {
-    expelledStudent.push(students.splice(targetId, 1));
+    expelledStudents.push(students.splice(targetId, 1));
   }
-  // console.log(expelledStudent); confirmed it is giving me back the array.
+  
+  expelledStudentBuilder(expelledStudents);
   studentBuilder(students);
+  console.log(expelledStudents);
+  return targetId;
 }
 
 
 const handleButtonClick = (e) => {
   const buttonId = e.target.id;
-  //If I console log buttonId, it gives me the object in the array
   
   if (buttonId === 'showForm') {
     document.querySelector('#hideForm').style.display = 'block';
@@ -97,7 +150,9 @@ const handleButtonClick = (e) => {
 const buttonEvents = () => {
   document.querySelector('#showForm').addEventListener('click', handleButtonClick);
   document.querySelector('form').addEventListener('submit', getStudentInfo);
-  document.querySelector('#studentCard').addEventListener('click', expelStudent)
+  document.querySelector('#alphabet').addEventListener('click', studentSortByName);
+  document.querySelector('#house').addEventListener('click', studentSortByHouse);
+  document.querySelector('#studentCard').addEventListener('click', expelStudent);
 }
 
 const init = () => {
