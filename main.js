@@ -10,13 +10,13 @@ const printToDom = (divId, textToPrint) => {
 const studentBuilder = (taco) => {
   let showOnDom = '';
   taco.forEach((item, i) => {
-    showOnDom += `<p class="card m-1 ${item.house.toLowerCase()}" style="width: 14rem;" id=${i}>
+    showOnDom += `<div class="card m-1 ${item.house.toLowerCase()}" style="width: 14rem;" id=${i}>
                     <div class="card-body text-center">
                       <h5 class="card-title">${item.name}</h5>
                       <p class="card-text">${item.house}</p>
                       <button type="button" class="btn btn-danger" id=${i}>Expel</button>
                     </div>
-                  </p>`
+                  </div>`
   })
   printToDom('#studentCard', showOnDom);
 }
