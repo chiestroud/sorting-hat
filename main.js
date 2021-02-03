@@ -27,7 +27,7 @@ const expelledStudentBuilder = (taco) => {
     secretDom += `<div class="card m-1" style="width: 12rem;" id=${i}>
                     <img src="https://upload.wikimedia.org/wikipedia/en/7/7d/DeathEaters.jpg" alt="Death Eater">
                     <div class="card-body text-center">
-                      <p class="card-text text-dark">Unfortunately, <span class="text-danger">${item.name}</span> went over to the dark side</p>
+                      <p class="h6 card-text text-dark">Unfortunately, <span class="text-danger">${item.name}</span> went over to the dark side</p>
                     </div>
                   </div>`
   })
