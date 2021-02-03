@@ -1,49 +1,5 @@
-console.log('hello');
-
 const randomHouse = ['Griffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'];
-
-const students = [
-  // {
-  //   id: 0,
-  //   name: 'Winky Abbott',
-  //   house: 'Hufflepuff'
-  // },
-  // {
-  //   id: 1,
-  //   name: 'Harry Potter',
-  //   house: 'Griffindor'
-  // },
-  // {
-  //   id: 2,
-  //   name: 'Hermione Granger',
-  //   house: 'Griffindor'
-  // },
-  // {
-  //   id: 3,
-  //   name: 'Nymphadora Tonks',
-  //   house: 'Hufflepuff'
-  // },
-  // {
-  //   id: 4,
-  //   name: 'Luna Lovegood',
-  //   house: 'Ravenclaw'
-  // },
-  // {
-  //   id: 5,
-  //   name: 'Grahm Pitchard',
-  //   house: 'Slytherin'
-  // },
-  // {
-  //   id: 6,
-  //   name: 'Andromeda Black',
-  //   house: 'Slytherin'
-  // },
-  // {
-  //   id: 7,
-  //   name: 'Cho Chang',
-  //   house: 'Ravenclaw'
-  // },
-]
+const students = [];
 const expelledStudents = [];
 
 const printToDom = (divId, textToPrint) => {
@@ -54,13 +10,13 @@ const printToDom = (divId, textToPrint) => {
 const studentBuilder = (taco) => {
   let showOnDom = '';
   taco.forEach((item, i) => {
-    showOnDom += `<div class="card m-1 ${item.house.toLowerCase()}" style="width: 18rem;" id=${i}>
+    showOnDom += `<p class="card m-1 ${item.house.toLowerCase()}" style="width: 14rem;" id=${i}>
                     <div class="card-body text-center">
                       <h5 class="card-title">${item.name}</h5>
                       <p class="card-text">${item.house}</p>
                       <button type="button" class="btn btn-danger" id=${i}>Expel</button>
                     </div>
-                  </div>`
+                  </p>`
   })
   printToDom('#studentCard', showOnDom);
 }
@@ -68,10 +24,10 @@ const studentBuilder = (taco) => {
 const expelledStudentBuilder = (taco) => {
   let secretDom = '';
   taco.forEach((item, i) => {
-    secretDom += `<div class="card m-1" style="width: 13rem;" id=${i}>
+    secretDom += `<div class="card m-1" style="width: 12rem;" id=${i}>
                     <img src="https://upload.wikimedia.org/wikipedia/en/7/7d/DeathEaters.jpg" alt="Death Eater">
                     <div class="card-body text-center">
-                      <p class="card-text">Unfortunately, <span class="text-danger">${item.name}</span> went over to the dark side</p>
+                      <p class="card-text text-dark">Unfortunately, <span class="text-danger">${item.name}</span> went over to the dark side</p>
                     </div>
                   </div>`
   })
@@ -92,7 +48,7 @@ const getStudentInfo = (e) => {
   }
   students.push(obj);
   studentBuilder(students);
-  console.log(students);
+  // console.log(students);
   document.querySelector('form').reset();
 }
 

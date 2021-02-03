@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <link rel="stylesheet" href="main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
   <title>Sorting Hat</title>
 </head>
 <body>
@@ -13,9 +15,9 @@
   <header class="container">
     <div class="jumbotron text-center">
       <h1 class="display-4 container text-center">Hoggy Warty Hogwarts</h1>
-      <p class="lead">Welcome to Sorting Hat page! Let's have fun adding students and expel them if needed. Reducio revelio mobilicorpus incantatem wingardium lacarnum incarcerous charm. Engorgio. </p>
+      <p class="lead">Welcome! Let's have fun adding New Year's to the sort list! If you don't like the student, you can expel them too! Reducio revelio mobilicorpus incantatem wingardium lacarnum incarcerous charm. Engorgio. </p>
       <hr class="my-4">
-      <p>Click below to add students!</p>
+      <p>Click below to sort students!</p>
       <button type="button" id="showForm" class="btn btn-primary">Let's Start Sorting!</button>
     </div>
     <form>
@@ -24,7 +26,7 @@
         <label for="name" class="form-label">Student:</label>
         <input type="name" class="form-control" id="studentName" placeholder="Neville Longbottom" required>
         <button type="submit" id="sort" class="btn btn-secondary mt-2">Sort</button>
-      </div>
+    </div>
     </form>
   </header>
   <main class="container">
@@ -33,11 +35,11 @@
       <button type="button" id="house" class="btn btn-warning text-white">Sort By House</button>
     </div>
     <div class="container d-flex justify-content-center mt-3">
-      <div class="border border-secondary first-year font-weight-bold text-center">First Year's
+      <div class="h4 first-year font-weight-bold text-center mb-1 bg-white">First Year's
         <div id="studentCard" class="d-flex flex-wrap justify-content-around"></div>
       </div>
-      <div id="dark-side" class="border border-secondary dark-side font-weight-bold text-center">Dark Side
-        <div id="expelledStudent" class="d-flex flex-wrap justify-content-around">Wonder what will show up here....</div>
+      <div id="dark-side" class="h4 dark-side font-weight-bold text-center text-danger bg-dark mb-1">Dark Side
+        <div id="expelledStudent" class="d-flex flex-wrap justify-content-around">Wonder what will show up here.......</div>
       </div>
     </div>
   </main>
