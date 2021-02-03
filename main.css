@@ -1,6 +1,8 @@
 body {
   background-color: rgba(11,156,49,0.2);
+  font-family: 'Ubuntu', sans-serif;
 }
+ 
 #hideForm {
   display: none;
 }
