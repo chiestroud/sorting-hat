@@ -1,3 +1,7 @@
+import { double } from './utils.js';
+
+console.log(double(5));
+
 const randomHouse = ['Griffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'];
 const students = [];
 const expelledStudents = [];
