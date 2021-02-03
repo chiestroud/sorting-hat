@@ -24,7 +24,7 @@ Any user
 * Students move to Dark Side when they are expelled.
 
 ## Screenshots of the project
-![ScreenShot] (Sorting Hat.png)
+![Screenshot] (SortingHat.png)
 
 ## List of contributors and links to their GH profiles
 <https://github.com/chiestroud>
