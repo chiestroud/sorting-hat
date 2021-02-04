@@ -1,4 +1,7 @@
-import { double } from './utils.js';
+import User from '/user.js'
+
+const user = new User('Bob', 11)
+console.log(user);
 
 console.log(double(5));
 
