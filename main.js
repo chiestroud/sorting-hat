@@ -95,6 +95,11 @@ const expelStudent = (e) => {
   console.log(expelledStudents);
 }
 
+const color = student.house;
+if (color === "Griffindor") {
+  document.querySelector('#card-body').style.backgroundColor = 'red';
+}
+
 
 const handleButtonClick = (e) => {
   const buttonId = e.target.id;
