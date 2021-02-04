@@ -30,3 +30,4 @@ Any user
 <https://github.com/chiestroud>
 
 ## Link to Loom video walkthrough of the app
+<https://www.loom.com/share/69dbed5095974b43a7cf06e597bf0846>
