@@ -47,7 +47,6 @@ const getStudentInfo = (e) => {
   }
   students.push(obj);
   studentBuilder(students);
-  // console.log(students);
   document.querySelector('form').reset();
 }
 
@@ -61,25 +60,14 @@ const studentSortByName = () => {
     } else if (nameA > nameB) {
       return 1;
     }
-    return 0;
   });
   studentBuilder(students);
 }
-
+// Sorting students with house (refactored code!!!!!)
 const studentSortByHouse = () => {
-  students.sort((a, b) => {
-    let houseA = a.house.toUpperCase();
-    let houseB = b.house.toUpperCase();
-    if (houseA < houseB) {
-      return -1;
-    } else if (houseA > houseB) {
-      return 1;
-    } 
-    return 0;
-  })
+  students.sort((a, b) => (a.house.toUpperCase() < b.house.toUpperCase() ? -1 : 1));
   studentBuilder(students);
 }
-
 // Expelling student in a different array
 const expelStudent = (e) => {
   const targetType = e.target.type;
