@@ -95,7 +95,6 @@ const expelStudent = (e) => {
   console.log(expelledStudents);
 }
 
-
 const handleButtonClick = (e) => {
   const buttonId = e.target.id;
   
