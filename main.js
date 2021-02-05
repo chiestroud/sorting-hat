@@ -33,7 +33,6 @@ const expelledStudentBuilder = (taco) => {
   })
   printToDom('#expelledStudent', secretDom);
 }
-
 // Getting student info
 const getStudentInfo = (e) => {
   e.preventDefault();
