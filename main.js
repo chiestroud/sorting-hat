@@ -6,7 +6,7 @@ const printToDom = (divId, textToPrint) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = textToPrint;
 }
-
+// Normal student
 const studentBuilder = (taco) => {
   let showOnDom = '';
   taco.forEach((item, i) => {
@@ -20,7 +20,7 @@ const studentBuilder = (taco) => {
   })
   printToDom('#studentCard', showOnDom);
 }
-
+// Expelled student
 const expelledStudentBuilder = (taco) => {
   let secretDom = '';
   taco.forEach((item, i) => {
@@ -50,51 +50,35 @@ const getStudentInfo = (e) => {
   document.querySelector('form').reset();
 }
 
-// Sorting students with name (alphabetical order)
-const studentSortByName = () => {
-  students.sort((a, b) => {
-    let nameA = a.name.toUpperCase(); 
-    let nameB = b.name.toUpperCase(); 
-    if (nameA < nameB) {
-      return -1;
-    } else if (nameA > nameB) {
-      return 1;
-    }
-  });
-  studentBuilder(students);
-}
-// Sorting students with house (refactored code!!!!!)
-const studentSortByHouse = () => {
-  students.sort((a, b) => (a.house.toUpperCase() < b.house.toUpperCase() ? -1 : 1));
-  studentBuilder(students);
-}
 // Expelling student in a different array
 const expelStudent = (e) => {
   const targetType = e.target.type;
   const targetId = e.target.id;
- 
   if (targetType === 'button') {
     expelledStudents.push(...students.splice(targetId, 1));
-  }
-  
+  }  
   expelledStudentBuilder(expelledStudents);
   studentBuilder(students);
-  console.log(expelledStudents);
 }
 
-const handleButtonClick = (e) => {
+const buttonFunc = (e) => {
   const buttonId = e.target.id;
-  
   if (buttonId === 'showForm') {
     document.querySelector('#hideForm').style.display = 'block';
-  } 
+  } else if (buttonId === 'house') {
+    students.sort((a, b) => (a.house.toUpperCase() < b.house.toUpperCase() ? -1 : 1));
+    studentBuilder(students);
+  } else if (buttonId === 'alphabet') {
+    students.sort((a, b) => (a.name.toUpperCase() < b.name.toUpperCase() ? -1 : 1));
+    studentBuilder(students);
+  }
 }
 
 const buttonEvents = () => {
-  document.querySelector('#showForm').addEventListener('click', handleButtonClick);
-  document.querySelector('form').addEventListener('submit', getStudentInfo);
-  document.querySelector('#alphabet').addEventListener('click', studentSortByName);
-  document.querySelector('#house').addEventListener('click', studentSortByHouse);
+  document.querySelector('#showForm').addEventListener('click', buttonFunc);
+  document.querySelector('#house').addEventListener('click', buttonFunc);
+  document.querySelector('#alphabet').addEventListener('click', buttonFunc);
+  document.querySelector('form').addEventListener('submit', getStudentInfo);  
   document.querySelector('#studentCard').addEventListener('click', expelStudent);
 }
 
@@ -104,3 +88,23 @@ const init = () => {
 }
 
 init();
+
+// Before refactoring code
+// Sorting students with name (alphabetical order)
+// const studentSortByName = () => {
+//   students.sort((a, b) => {
+//     let nameA = a.name.toUpperCase(); 
+//     let nameB = b.name.toUpperCase(); 
+//     if (nameA < nameB) {
+//       return -1;
+//     } else if (nameA > nameB) {
+//       return 1;
+//     }
+//   });
+//   studentBuilder(students);
+// }
+// Sorting students with house (refactored code!!!!!)
+// const studentSortByHouse = () => {
+//   students.sort((a, b) => (a.house.toUpperCase() < b.house.toUpperCase() ? -1 : 1));
+//   studentBuilder(students);
+// }
