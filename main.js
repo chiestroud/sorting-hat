@@ -90,7 +90,6 @@ const init = () => {
 init();
 
 // Before refactoring code
-// Sorting students with name (alphabetical order)
 // const studentSortByName = () => {
 //   students.sort((a, b) => {
 //     let nameA = a.name.toUpperCase(); 
