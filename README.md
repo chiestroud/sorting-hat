@@ -1,5 +1,4 @@
-## Name of the Project
-### Sorting Hat
+## Sorting Hat
 
 ## Overview of the project
 Sorting Hat allows users to have fun adding New Year's students and assign random houses just like Harry Potter. Also it allows user to expel students who they don't like.
